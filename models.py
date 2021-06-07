@@ -24,13 +24,23 @@ def get_user():
 ## always commit your models to avoid problems later
 
 db.define_table(
-    'users',
-    Field('email', default=get_user_email),
-    Field('name'),
-    Field('social_elo', 'integer', default=0),
-    Field('region'),
-    Field('microphone', 'boolean', default=False),
-    Field('dob'),
+    'profiles',
+    Field('user', 'reference auth_user'),
+    Field('region', default="NA West"),
+    Field('bio'),
+    Field('mic', 'boolean', default=False),
+    Field('tiltproof', 'integer', default=0),
+    Field('leader', 'integer', default=0 ),
+    Field('fun', 'integer', default=0),
+    Field('communicative', 'integer', default=0)
+)
+
+db.define_table(
+    'game_data',
+    Field('profile', 'reference profiles'),
+    Field('game'),
+    Field('gamertag', default="No Name"),
+    Field('rank', default="Unranked"),
 )
 
 db.define_table(

@@ -87,16 +87,16 @@ auth = Auth(session, db, define_tables=False)
 auth_messages = copy.deepcopy(auth.MESSAGES)
 auth_messages['buttons']['sign-in'] = "Log in"
 auth_messages['buttons']['sign-up'] = "Sign up"
-auth_messages['buttons']['lost-password'] = "Lost password"
+auth_messages['buttons']['lost-password'] = "Forgot Password"
 
 # And button classes.
 auth_button_classes = {
     "lost-password": "button is-danger is-light",
-    "register": "button is-info is-light",
-    "request": "button is-primary",
-    "sign-in": "button is-primary",
-    "sign-up": "button is-success",
-    "submit": "button is-primary",
+    "register": "button is-danger",
+    "request": "button is-danger",
+    "sign-in": "button is-danger",
+    "sign-up": "button is-danger",
+    "submit": "button is-danger",
 }
 
 auth.use_username = False

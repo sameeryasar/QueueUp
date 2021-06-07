@@ -39,3 +39,58 @@ CREATE TABLE "users"(
     "dob" CHAR(512)
 );
 success!
+timestamp: 2021-06-04T14:18:43.272789
+CREATE TABLE "lobbies"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "leader" CHAR(512),
+    "bio" CHAR(512),
+    "player1" CHAR(512),
+    "player2" CHAR(512),
+    "player3" CHAR(512),
+    "player4" CHAR(512),
+    "rank" CHAR(512),
+    "region" CHAR(512),
+    "playstyle" CHAR(512),
+    "microphone" CHAR(512)
+);
+success!
+timestamp: 2021-06-05T03:41:02.047145
+CREATE TABLE "user_info"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "player" INTEGER REFERENCES "users" ("id") ON DELETE CASCADE  ,
+    "region" CHAR(512),
+    "valorant_rank" CHAR(512),
+    "valorant_ign" CHAR(512)
+);
+success!
+timestamp: 2021-06-05T04:06:03.522696
+CREATE TABLE "player_info"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "player_id" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "region" CHAR(512),
+    "valorant_rank" CHAR(512),
+    "valorant_ign" CHAR(512)
+);
+success!
+timestamp: 2021-06-05T18:29:51.359436
+CREATE TABLE "profiles"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "user" INTEGER REFERENCES "auth_user" ("id") ON DELETE CASCADE  ,
+    "region" CHAR(512),
+    "bio" CHAR(512),
+    "mic" CHAR(1),
+    "tiltproof" INTEGER,
+    "leader" INTEGER,
+    "fun" INTEGER,
+    "communicative" INTEGER
+);
+success!
+timestamp: 2021-06-05T18:29:51.367437
+CREATE TABLE "game_data"(
+    "id" INTEGER PRIMARY KEY AUTOINCREMENT,
+    "profile" INTEGER REFERENCES "profiles" ("id") ON DELETE CASCADE  ,
+    "game" CHAR(512),
+    "gamertag" CHAR(512),
+    "rank" CHAR(512)
+);
+success!

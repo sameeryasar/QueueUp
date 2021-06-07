@@ -1,0 +1,95 @@
+[[extend "layout.html"]]
+
+<style>
+[v-v-cloak] {
+  display: none;
+}
+.input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+}
+.tile {
+  justify-content: center;
+}
+p {
+  margin-left: 10px;
+}
+b {
+  margin-left: 10px;
+}
+.button {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.text-center {
+  text-align: center;
+}
+</style>
+
+<div class="section" id="vue-target" v-cloak>
+  <div class="columns is-mobile">
+    <div class="column is-4 is-offset-4">
+      <div class="tile notification is-danger">
+          <form>
+            <div v-if="register">
+              <p class="title" style="text-align: center;">Register for an Account!</p>
+            </div>
+            <div v-else>
+              <p class="title" style="text-align: center;">Log In!</p>
+            </div>
+            <b>Email</b>
+            <input class="input" type="text" placeholder="Email">
+            <b>Password</b>
+            <input class="input" type="password" placeholder="Password">
+            <div v-if="register">
+              <b>Retype Password</b>
+              <input class="input" type="password" placeholder="Retype Password">
+              <b>First Name</b>
+              <input class="input" type="text" placeholder="First Name">
+              <b>Last Name</b>
+              <input class="input" type="text" placeholder="Last Name">
+            </div>
+            <div class="text-center">
+              <div v-if="register">
+                <button @click="set_register_status(false)" class="button">
+                  <span class="icon">
+                    <i class="fa fa-angle-left"></i>
+                  </span>
+                  <span>Login</span>
+                </button>
+                <button class="button">
+                  <span class="icon">
+                    <i class="fa fa-user-plus"></i>
+                  </span>
+                  <span>Register</span>
+                </button>
+              </div>
+              <div v-else>
+                <button @click="set_register_status(true)" class="button">
+                  <span>Sign Up</span>
+                </button>
+                <button class="button">
+                  <span class="icon">
+                    <i class="fa fa-sign-in"></i>
+                  </span>
+                  <span>Login</span>
+                </button>
+              </div>
+              <button class="button">
+                <span>Forgot Password</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+[[block page_scripts]]
+<script>
+
+</script>
+<script src="js/auth.js"></script>
+[[end]]

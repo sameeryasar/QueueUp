@@ -1,0 +1,118 @@
+[[extend 'layout.html']]
+
+<style>
+[v-cloak] {
+        display: none;
+}
+.input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+p {
+  margin-left: 10px;
+}
+b {
+  margin-left: 10px;
+}
+i {
+  margin-top: 20px;
+}
+.button {
+  margin-top: 10px;
+  margin-left: 10px;
+}
+.text-center {
+  text-align: center;
+}
+</style>
+
+<!-- <div class="section" id="vue-target" v-cloak>
+    <div class="columns is-mobile">
+        <div class="column is-4 is-offset-4">
+          <div class="tile notification is-danger">
+            <form>
+              <b>Email: </b>
+              <p>[[=user_info.email]]</p>
+              <input class="input" type="text" placeholder="Type your new email here">
+            </form>
+          </div>
+        </div>
+    </div>
+</div> -->
+
+<div class="section" id="vue-target" v-cloak>
+  <div class="columns is-mobile">
+    <div class="column is-4 is-offset-4">
+      <p class="title" style="text-align: center;">View and Edit Your Profile</p>
+      <div class="field">
+        <label class="label">Email</label>
+        <div class="control has-icons-left">
+          <input class="input" type="email" placeholder="Enter a different email" value="[[=user_info.email]]">
+          <span class="icon is-small is-left">
+            <i class="fa fa-envelope"></i>
+          </span>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">First Name</label>
+        <div class="control has-icons-left">
+          <input class="input" type="text" placeholder="Enter a different first name" value="[[=user_info.first_name]]">
+          <span class="icon is-small is-left">
+            <i class="fa fa-check-square-o"></i>
+          </span>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Last Name</label>
+        <div class="control has-icons-left">
+          <input class="input" type="text" placeholder="Enter a different last name" value="[[=user_info.last_name]]">
+          <span class="icon is-small is-left">
+            <i class="fa fa-check-square-o"></i>
+          </span>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Region</label>
+        <div class="control has-icons-left">
+          <div class="select">
+            <select>
+              <option selected>NA West</option>
+              <option>NA East</option>
+              <option>NA Central</option>
+            </select>
+          </div>
+          <div class="icon is-small is-left">
+            <i class="fa fa-globe" style="margin-bottom: 20px;"></i>
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Valorant Username</label>
+        <div class="control has-icons-left">
+          <input class="input" type="text" placeholder="Enter a different username for Valorant" value="[[=player_info.valorant_ign]]">
+          <span class="icon is-small is-left">
+            <i class="fa fa-user"></i>
+          </span>
+        </div>
+      </div>
+      <div class="field">
+        <label class="label">Valorant Rank</label>
+        <div class="control has-icons-left">
+          <input class="input" type="text" placeholder="Enter a different rank for Valorant" value="[[=player_info.valorant_rank]">
+          <span class="icon is-small is-left">
+            <i class="fa fa-list-ol"></i>
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+[[block page_scripts]]
+<!-- Loads the index-specific js for Vue -->
+<script>
+</script>
+<script src="js/edit_profile.js"></script>
+[[end]]
+
+    
